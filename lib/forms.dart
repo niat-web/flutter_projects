@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive/hive.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:textformfields/screens/home_screen.dart';
 
 class FormScreen extends StatefulWidget {
@@ -84,8 +86,12 @@ class _FormScreenState extends State<FormScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         if (_formKey.currentState!.validate()) {
+                          // final prefs = await SharedPreferences.getInstance();
+                          // await prefs.setBool("isLoggedIn", true);
+                          final box = Hive.box('authBox');
+                          await box.put('isLogggedIn', true);
                           context.go('/home');
                           // If the form is valid, display a snackbar.
                           ScaffoldMessenger.of(context).showSnackBar(

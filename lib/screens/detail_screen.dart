@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key});
@@ -12,6 +13,12 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+         leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            context.pop();
+          },
+        ),
         title: const Text("Detail Screen"),
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,

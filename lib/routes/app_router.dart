@@ -6,10 +6,12 @@ import 'package:textformfields/screens/detail_screen.dart';
 import 'package:textformfields/screens/home_screen.dart';
 import 'package:textformfields/screens/music_screen.dart';
 import 'package:textformfields/screens/profile_screen.dart';
+import 'package:textformfields/widgets/splash_screen.dart';
 
 final GoRouter appRouter = GoRouter(initialLocation: '/', routes: [
+  GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
   GoRoute(
-    path: '/',
+    path: '/login',
     builder: (context, state) => const FormScreen(),
   ),
   GoRoute(path: '/details', builder: (context, state) => const DetailScreen()),
