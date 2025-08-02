@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gorouter_bottom_bar/auth/login_screen.dart';
 import 'package:gorouter_bottom_bar/core/app_router.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await Hive.openBox("registerBox");
   runApp(const MyApp());
 }
 

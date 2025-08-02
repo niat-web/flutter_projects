@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -12,6 +13,12 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
+  Future<void> _saveDetails() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString("email", emailController.text);
+    await prefs.setString("password", passwordController.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,10 +70,27 @@ class _LoginScreenState extends State<LoginScreen> {
               ElevatedButton(
                 onPressed: () {
                   if (_formkey.currentState!.validate()) {
+                    _saveDetails();
                     context.go("/home");
                   }
                 },
                 child: Text("Submit"),
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don't have an account?"),
+                  TextButton(
+                    child: Text(
+                      "Register",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                    onPressed: () {
+                      context.go("/register");
+                    },
+                  ),
+                ],
               ),
             ],
           ),

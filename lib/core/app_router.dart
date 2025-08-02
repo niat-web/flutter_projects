@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:gorouter_bottom_bar/auth/login_screen.dart';
+import 'package:gorouter_bottom_bar/auth/register_screen.dart';
 import 'package:gorouter_bottom_bar/core/bottom_bar.dart';
 import 'package:gorouter_bottom_bar/core/splash_screen.dart';
 import 'package:gorouter_bottom_bar/screens/article_screen.dart';
@@ -12,7 +13,7 @@ final approuter = GoRouter(
   routes: [
     GoRoute(path: "/", builder: (context, state) => SplashScreen(),),
     GoRoute(path: "/login", builder: (context, state) => LoginScreen()),
-
+    GoRoute(path: "/register", builder: (context, state) => RegisterScreen(),),
     ShellRoute(
       builder: (context, state, child) => BottomBar(child: child,),
       routes: [
