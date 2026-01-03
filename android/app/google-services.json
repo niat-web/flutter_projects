@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "405791121914",
+    "project_id": "offline-first-chat-bloc-mvvm",
+    "storage_bucket": "offline-first-chat-bloc-mvvm.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405791121914:android:5f13c267f1ab17ec9c0443",
+        "android_client_info": {
+          "package_name": "com.example.offline_first_chat_bloc_mvvm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHDDpnDweFEnonCiY9TFBsUraNszejcbM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
